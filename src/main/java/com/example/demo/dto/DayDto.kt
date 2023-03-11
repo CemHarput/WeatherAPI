@@ -1,0 +1,43 @@
+package com.example.demo.dto
+
+import java.math.BigDecimal
+import java.time.LocalDateTime
+
+data class DayDto(
+    val id: String?,
+    val datetime: LocalDateTime?,
+    val datetimeEpoch:Long?,
+    val tempmax: BigDecimal?,
+    val tempmin: BigDecimal?,
+    val temp: BigDecimal?,
+    val feelslikemax: BigDecimal?,
+    val feelslikemin: BigDecimal?,
+    val feelslike: BigDecimal?,
+    val dew: BigDecimal?,
+    val humidity: BigDecimal?,
+    val precip: BigDecimal?,
+    val precipprob: BigDecimal?,
+    val precipcover: BigDecimal?,
+    val preciptype:List<String>?,
+    val snow: BigDecimal?,
+    val snowdepth: BigDecimal?,
+    val windgust: BigDecimal?,
+    val windspeed: BigDecimal?,
+    val winddir: BigDecimal?,
+    val pressure: BigDecimal?,
+    val cloudcover: BigDecimal?,
+    val visibility: BigDecimal?,
+    val solarradiation: BigDecimal?,
+    val solarenergy: BigDecimal?,
+    val uvindex: BigDecimal?,
+    val sunrise:String?,
+    val sunriseEpoch:Long?,
+    val sunset:String?,
+    val sunsetEpoch:Long?,
+    val moonphase: BigDecimal?,
+    val conditions:String?,
+    val description:String?,
+    val icon:String?,
+    val stations:List<String>?,
+    val source:String?,
+)
