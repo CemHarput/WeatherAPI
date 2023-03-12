@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
 import org.modelmapper.ModelMapper;
@@ -16,6 +18,8 @@ public class DemoApplication {
 	}
 	@Bean
 	public RestTemplate restTemplate(){
+		ObjectMapper objectMapper=new ObjectMapper();
+		objectMapper.registerModule(new JavaTimeModule());
 		return new RestTemplate();
 	}
 	@Bean

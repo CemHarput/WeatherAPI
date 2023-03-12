@@ -4,7 +4,6 @@ package com.example.demo.model
 import javax.persistence.*
 import org.hibernate.annotations.GenericGenerator
 import java.math.BigDecimal
-import java.time.LocalDateTime
 
 
 @Entity
@@ -13,7 +12,7 @@ data class Day(
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     val id: String?,
-    val datetime:LocalDateTime?,
+    val datetime:String?,
     val datetimeEpoch:Long?,
     val tempmax:BigDecimal?,
     val tempmin:BigDecimal?,

@@ -28,7 +28,6 @@ data class CurrentConditionDto(
     val uvindex: BigDecimal?,
     val conditions:String?,
     val icon:String?,
-    val stationEntities: Set<StationEntityDto>,
     val source:String?,
     val sunrise:String?,
     val sunriseEpoch:Long?,

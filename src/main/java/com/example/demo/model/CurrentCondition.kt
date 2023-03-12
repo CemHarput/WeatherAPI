@@ -3,7 +3,6 @@ package com.example.demo.model
 
 import org.hibernate.annotations.GenericGenerator
 import java.math.BigDecimal
-import java.time.LocalTime
 import javax.persistence.*
 
 @Entity
@@ -11,40 +10,40 @@ data class CurrentCondition(
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    val id: String?,
+    val id: String?=null,
 
-    val datetime:LocalTime?,
-    val datetimeEpoch:Long?,
-    val temp:BigDecimal?,
-    val feelslike:BigDecimal?,
-    val humidity:BigDecimal?,
-    val dew:BigDecimal?,
-    val precip:BigDecimal?,
-    val precipprob:BigDecimal?,
-    val snow:BigDecimal?,
-    val snowdepth:BigDecimal?,
-    val preciptype:BigDecimal?,
-    val windgust:BigDecimal?,
-    val windspeed:BigDecimal?,
-    val winddir:BigDecimal?,
-    val pressure:BigDecimal?,
-    val visibility:BigDecimal?,
-    val cloudcover:BigDecimal?,
-    val solarradiation:BigDecimal?,
-    val solarenergy:BigDecimal?,
-    val uvindex:BigDecimal?,
-    val conditions:String?,
-    val icon:String?,
+    val datetime:String?=null,
+    val datetimeEpoch:Long?=null,
+    val temp:BigDecimal?=null,
+    val feelslike:BigDecimal?=null,
+    val humidity:BigDecimal?=null,
+    val dew:BigDecimal?=null,
+    val precip:BigDecimal?=null,
+    val precipprob:BigDecimal?=null,
+    val snow:BigDecimal?=null,
+    val snowdepth:BigDecimal?=null,
+    val preciptype:BigDecimal?=null,
+    val windgust:BigDecimal?=null,
+    val windspeed:BigDecimal?=null,
+    val winddir:BigDecimal?=null,
+    val pressure:BigDecimal?=null,
+    val visibility:BigDecimal?=null,
+    val cloudcover:BigDecimal?=null,
+    val solarradiation:BigDecimal?=null,
+    val solarenergy:BigDecimal?=null,
+    val uvindex:BigDecimal?=null,
+    val conditions:String?=null,
+    val icon:String?=null,
 
-    @OneToMany(mappedBy = "currentCondition", fetch = FetchType.LAZY)
-    val stations: Set<Station>,
+    @ElementCollection
+    val stations: List<String>?=null,
 
-    val source:String?,
-    val sunrise:String?,
-    val sunriseEpoch:Long?,
-    val sunset:String?,
-    val sunsetEpoch:Long?,
-    val moonphase:BigDecimal?,
+    val source:String?=null,
+    val sunrise:String?=null,
+    val sunriseEpoch:Long?=null,
+    val sunset:String?=null,
+    val sunsetEpoch:Long?=null,
+    val moonphase:BigDecimal?=null,
 
     @OneToOne(cascade = [CascadeType.ALL])
     @JoinColumn(name = "city_id", referencedColumnName = "id")

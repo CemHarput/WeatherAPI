@@ -1,5 +1,6 @@
 package com.example.demo.dto
 
+import lombok.Data
 import java.math.BigDecimal
 
 data class CityDto(
@@ -12,6 +13,5 @@ data class CityDto(
     val timezone:String?,
     val tzoffset:BigDecimal?,
     val days: List<DayDto>,
-    val station: StationDto,
     val currentCondition: CurrentConditionDto,
 )

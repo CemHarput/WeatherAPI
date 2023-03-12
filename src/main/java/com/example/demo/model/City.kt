@@ -9,23 +9,20 @@ data class City(
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    val id: String?,
-    val queryCost:Int?,
-    val latitude:Long?,
-    val longitude:Long?,
-    val resolvedAddress:String?,
-    val address:String?,
-    val timezone:String?,
-    val tzoffset:Long?,
+    val id: String?= null,
+    val queryCost:Int?= null,
+    val latitude:Double?= null,
+    val longitude:Double?= null,
+    val resolvedAddress:String?= null,
+    val address:String?= null,
+    val timezone:String?= null,
+    val tzoffset:Double?= null,
 
     @OneToMany(mappedBy = "city", fetch = FetchType.LAZY)
-    val days: List<Day>,
+    val days: List<Day>?= null,
 
     @OneToOne(mappedBy = "city", fetch = FetchType.LAZY)
-    val station: Station,
-
-    @OneToOne(mappedBy = "city", fetch = FetchType.LAZY)
-    val currentCondition: CurrentCondition,
+    val currentConditions: CurrentCondition?= null,
 
 ){
        override fun equals(other: Any?): Boolean {
@@ -43,8 +40,7 @@ data class City(
         if (timezone != other.timezone) return false
         if (tzoffset != other.tzoffset) return false
         if (days != other.days) return false
-        if (station != other.station) return false
-        if (currentCondition != other.currentCondition) return false
+        if (currentConditions != other.currentConditions) return false
 
         return true
     }
@@ -59,8 +55,7 @@ data class City(
         result = 31 * result + (timezone?.hashCode() ?: 0)
         result = 31 * result + (tzoffset?.hashCode() ?: 0)
         result = 31 * result + days.hashCode()
-        result = 31 * result + station.hashCode()
-        result = 31 * result + currentCondition.hashCode()
+        result = 31 * result + currentConditions.hashCode()
         return result
     }
 
