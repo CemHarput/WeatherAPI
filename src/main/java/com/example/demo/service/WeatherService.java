@@ -32,10 +32,8 @@ public class WeatherService {
     }
     public CityDTO saveCity(String cityName) {
         City city = getCity(cityName);
-        if (Objects.nonNull(city)) {
-           return cityDtoConverter.convert(cityRepository.save(city));
-        }
-        throw new NullPointerException("City is null");
+        return cityDtoConverter.convert(cityRepository.save(city));
+
     }
     public List<CityDTO> getAllCities() {
         return cityRepository.findAll().stream().map(cityDtoConverter::convert).collect(Collectors.toList());
