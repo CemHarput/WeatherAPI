@@ -39,4 +39,8 @@ public class GeneralExceptionHandler extends ResponseEntityExceptionHandler {
     public ResponseEntity<?> cityFailedExceptionHandler(CitySaveFailedException exception)  {
         return new ResponseEntity<>(exception.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
+    @ExceptionHandler(CityGetAllFailedException.class)
+    public ResponseEntity<?> cityGetAllFailedExceptionHandler(CityGetAllFailedException exception)  {
+        return new ResponseEntity<>(exception.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 }

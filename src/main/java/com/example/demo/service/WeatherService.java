@@ -3,6 +3,7 @@ package com.example.demo.service;
 
 import com.example.demo.dto.converter.CityDtoConverter;
 import com.example.demo.dto.pojo.CityDTO;
+import com.example.demo.exception.CityGetAllFailedException;
 import com.example.demo.exception.CitySaveFailedException;
 import com.example.demo.model.City;
 import com.example.demo.repository.CityRepository;
@@ -55,6 +56,12 @@ public class WeatherService {
 
     }
     public List<CityDTO> getAllCities() {
-        return cityRepository.findAll().stream().map(cityDtoConverter::convert).collect(Collectors.toList());
+        try{
+            return cityRepository.findAll().stream().map(cityDtoConverter::convert).collect(Collectors.toList());
+        }catch (Exception e) {
+            Logger.getLogger(String.valueOf(e));
+            throw new CityGetAllFailedException("Failed to get the city list ");
+        }
+
     }
 }
